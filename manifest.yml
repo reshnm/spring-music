@@ -1,7 +1,11 @@
 ---
 applications:
 - name: spring-music
+  buildpack: https://github.com/reshnm/java-buildpack#master
   memory: 1G
   random-route: true
   path: build/libs/spring-music-1.0.jar
-
+  env:
+    JBP_CONFIG_COMPONENTS: '{jres: ["JavaBuildpack::Jre::SapMachineJRE"]}'
+    JBP_CONFIG_SAP_MACHINE_JRE: '{ jre: { version: 11.+ } }'
+    JBP_LOG_LEVEL: DEBUG
